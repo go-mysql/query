@@ -32,6 +32,6 @@ Fingerprints and IDs are used to parse and aggregate queries from the MySQL slow
 
 ## Acknowledgement
 
-This code was originally copied from [percona/go-mysql](https://github.com/percona/go-mysql/query) @ `2a6037d7d809b18ebd6d735b397f2321879af611`. See that project for original contributors and copyright.
+This code was originally copied from [percona/go-mysql](https://github.com/percona/go-mysql) @ `2a6037d7d809b18ebd6d735b397f2321879af611`. See that project for original contributors and copyright.
 
 This project is a fork to continue development of percona/go-mysql as separate packages. GitHub only allows forking a project once, which is why the code has been copied.
