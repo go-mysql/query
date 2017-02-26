@@ -1,6 +1,6 @@
 # Transform MySQL Queries
 
-[![GoDoc](https://godoc.org/github.com/go-mysql/query?status.svg)](https://godoc.org/github.com/go-mysql/query)
+[![Go Report Card](https://goreportcard.com/badge/github.com/go-mysql/query)](https://goreportcard.com/report/github.com/go-mysql/query) [![Build Status](https://travis-ci.org/go-mysql/query.svg?branch=master)](https://travis-ci.org/go-mysql/query) [![GoDoc](https://godoc.org/github.com/go-mysql/query?status.svg)](https://godoc.org/github.com/go-mysql/query)
 
 This package provides functions for transforming MySQL queries. Most important is `query.Fingerprint`:
 
