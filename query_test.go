@@ -546,3 +546,14 @@ func TestFingerprintWithNumberInDbName(t *testing.T) {
 		t.Errorf("got:\n%s\nexpected:\n%s\n", got, f)
 	}
 }
+
+func TestBackticks(t *testing.T) {
+	var q string
+	var f string
+
+	q = "select `tbl_ids`.`tbl_col`, `tbl_ids`.`id_col`, `tbl_ids`.`updated_at`, `tbl_ids`.`nickname`, `users`.`id_active`, `alias_35017380`.`usr_id` from `tbl_ids` join `users` on `tbl_ids`.`id_col` = `users`.`col` left outer join (select `usr`.`usr_id` as `usr_id` from `usr` where `usr`.`deleted_at` is null) as `alias_35017380` on `alias_35017380`.`usr_id` = `users`.`id` where `tbl_ids`.`tbl_col` = 123"
+	f = "select `tbl_ids`.`tbl_col`, `tbl_ids`.`id_col`, `tbl_ids`.`updated_at`, `tbl_ids`.`nickname`, `users`.`id_active`, `alias_35017380`.`usr_id` from `tbl_ids` join `users` on `tbl_ids`.`id_col` = `users`.`col` left outer join (select `usr`.`usr_id` as `usr_id` from `usr` where `usr`.`deleted_at` is null) as `alias_35017380` on `alias_35017380`.`usr_id` = `users`.`id` where `tbl_ids`.`tbl_col` = ?"
+	if got := query.Fingerprint(q); got != f {
+		t.Errorf("got:\n%s\nexpected:\n%s\n", got, f)
+	}
+}

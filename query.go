@@ -204,7 +204,7 @@ func Fingerprint(q string) string {
 					}
 				} else { // inBackticks
 					cpToOffset = qi + 1
-					s = unknown
+					s = inWord
 				}
 			}
 			continue
