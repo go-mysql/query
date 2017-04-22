@@ -337,6 +337,18 @@ func TestFingerprintOneLineComments(t *testing.T) {
 	}
 }
 
+func TestFingerprintMultiLineComments(t *testing.T) {
+	var q string
+	var f string
+
+	// Removes one-line comments in fingerprints
+	q = "/* criteria query */ select linked_at from t where this_.id='APP' and this_.alias='foo' and this_.active=1 /*com.company.prod.comp.func$$Lambda$221/364009719*/"
+	f = "select linked_at from t where this_.id=? and this_.alias=? and this_.active=?"
+	if got := query.Fingerprint(q); got != f {
+		t.Errorf("got:\n%s\nexpected:\n%s\n", got, f)
+	}
+}
+
 func TestFingerprintTricky(t *testing.T) {
 	var q string
 	var f string

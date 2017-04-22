@@ -348,6 +348,7 @@ func Fingerprint(q string) string {
 					fmt.Println("Ignore multi-line comment content")
 				}
 			}
+			pr = r // save previous rune so we can match */
 			continue
 		} else if s == mlcOrMySQLCode {
 			// We're at the start of either a /* multi-line comment */ or some
